@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Typography } from "@mui/material";
+import { Route, Routes } from "react-router-dom";
+
+import View from "./pages/view/View";
+import Create from "./pages/create/Create";
+import Modal from "./components/modal/Modal";
+import Loading from "./components/loading/Loading";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <Typography component="div">
+            <Modal />
+            <Loading />
+            <Routes>
+                <Route path="/" element={<Create />} />
+                <Route path="/edit/:id" element={<Create />} />
+                <Route path="/view" element={<View />} />
+                <Route path="/view/:id" element={<View />} />
+                <Route path="*" element={<Typography component="div"> PAGE NOT FOUND </Typography>} />
+            </Routes>
+        </Typography>
+    );
 }
 
 export default App;
