@@ -7,12 +7,11 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "./store";
 
-// @ts-ignore
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 
 root.render(
     <React.StrictMode>
-        <BrowserRouter>
+        <BrowserRouter basename={`${process.env.PUBLIC_URL}`}>
             <Provider store={store}>
                 <App />
             </Provider>
