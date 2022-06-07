@@ -3,7 +3,7 @@ import { store } from "../store";
 import { toggleLoading, setIsError } from "../store/mainSlice";
 
 export const defaultApi = axios.create({
-    baseURL: "https://tools.redkite.io/api/v1/",
+    baseURL: "https://tools.redkite.io/api/v1/contract",
 });
 
 defaultApi.interceptors.request.use((req) => {
