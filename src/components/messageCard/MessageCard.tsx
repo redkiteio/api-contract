@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { Grid, IconButton, Typography } from "@mui/material";
 import { Done as DoneIcon, ErrorOutline as ErrorOutlineIcon, Close as CloseIcon } from "@mui/icons-material";
+import { Link } from "react-router-dom";
 
 interface MessageCardProps {
     success?: boolean;
@@ -40,9 +41,12 @@ const MessageCard: FC<MessageCardProps> = ({ handleClose, message, messageDetail
 
             <Grid item xs={12} component="div" alignSelf="center" marginTop={4} sx={{ fontSize: "16px", color: "#130F26", fontWeight: 400 }}>
                 {success ? (
-                    <Typography component="a" href={FULL_URL} onClick={handleClose}>
+                    // <Typography component="a" href={FULL_URL} onClick={handleClose}>
+                    //     {FULL_URL}
+                    // </Typography>
+                    <Link to={`view/${messageDetails}`} onClick={handleClose} style={{ textDecoration: "none", textTransform: "none", color: "#3867D6" }}>
                         {FULL_URL}
-                    </Typography>
+                    </Link>
                 ) : (
                     messageDetails
                 )}
