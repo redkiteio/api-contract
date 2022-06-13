@@ -14,7 +14,7 @@ const MessageCard: FC<MessageCardProps> = ({ handleClose, message, messageDetail
     const { protocol, host } = window.location;
     // const FULL_URL = `${protocol}//${host}/api-contract/view/${messageDetails}`;
     const FULL_URL = `${protocol}//${host}${process.env.PUBLIC_URL}/view/${messageDetails}`;
-    console.log(FULL_URL);
+    console.log("FULL_URL", FULL_URL);
 
     return (
         <Grid container direction="column" alignItems="flex-start">
