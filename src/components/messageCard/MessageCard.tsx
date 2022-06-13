@@ -40,6 +40,7 @@ const MessageCard: FC<MessageCardProps> = ({ handleClose, message, messageDetail
                 {success ? (
                     <Typography component="a" href={FULL_URL} onClick={handleClose}>
                         {FULL_URL}
+                        {console.log(FULL_URL)}
                     </Typography>
                 ) : (
                     messageDetails
