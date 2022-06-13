@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Grid, IconButton, Typography } from "@mui/material";
+import { Grid, IconButton } from "@mui/material";
 import { Done as DoneIcon, ErrorOutline as ErrorOutlineIcon, Close as CloseIcon } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 
@@ -12,9 +12,7 @@ interface MessageCardProps {
 
 const MessageCard: FC<MessageCardProps> = ({ handleClose, message, messageDetails, success }) => {
     const { protocol, host } = window.location;
-    // const FULL_URL = `${protocol}//${host}/api-contract/view/${messageDetails}`;
     const FULL_URL = `${protocol}//${host}${process.env.PUBLIC_URL}/#/view/${messageDetails}`;
-    console.log("FULL_URL", FULL_URL);
 
     return (
         <Grid container direction="column" alignItems="flex-start">
@@ -41,9 +39,6 @@ const MessageCard: FC<MessageCardProps> = ({ handleClose, message, messageDetail
 
             <Grid item xs={12} component="div" alignSelf="center" marginTop={4} sx={{ fontSize: "16px", color: "#130F26", fontWeight: 400 }}>
                 {success ? (
-                    // <Typography component="a" href={FULL_URL} onClick={handleClose}>
-                    //     {FULL_URL}
-                    // </Typography>
                     <Link to={`view/${messageDetails}`} onClick={handleClose} style={{ textDecoration: "none", textTransform: "none", color: "#3867D6" }}>
                         {FULL_URL}
                     </Link>
