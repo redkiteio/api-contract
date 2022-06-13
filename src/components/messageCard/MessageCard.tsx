@@ -11,7 +11,9 @@ interface MessageCardProps {
 
 const MessageCard: FC<MessageCardProps> = ({ handleClose, message, messageDetails, success }) => {
     const { protocol, host } = window.location;
-    const FULL_URL = `${protocol}//${host}/api-contract/view/${messageDetails}`;
+    // const FULL_URL = `${protocol}//${host}/api-contract/view/${messageDetails}`;
+    const FULL_URL = `${protocol}//${host}${process.env.PUBLIC_URL}/view/${messageDetails}`;
+    console.log(FULL_URL);
 
     return (
         <Grid container direction="column" alignItems="flex-start">
@@ -40,7 +42,6 @@ const MessageCard: FC<MessageCardProps> = ({ handleClose, message, messageDetail
                 {success ? (
                     <Typography component="a" href={FULL_URL} onClick={handleClose}>
                         {FULL_URL}
-                        {console.log(FULL_URL)}
                     </Typography>
                 ) : (
                     messageDetails
