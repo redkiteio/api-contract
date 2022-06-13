@@ -13,7 +13,7 @@ interface MessageCardProps {
 const MessageCard: FC<MessageCardProps> = ({ handleClose, message, messageDetails, success }) => {
     const { protocol, host } = window.location;
     // const FULL_URL = `${protocol}//${host}/api-contract/view/${messageDetails}`;
-    const FULL_URL = `${protocol}//${host}${process.env.PUBLIC_URL}/view/${messageDetails}`;
+    const FULL_URL = `${protocol}//${host}${process.env.PUBLIC_URL}/#/view/${messageDetails}`;
     console.log("FULL_URL", FULL_URL);
 
     return (
